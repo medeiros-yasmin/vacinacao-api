@@ -60,9 +60,12 @@ public class VisitaController {
 	}
 	
 	@GetMapping("/porFiltro")
-	public ResponseEntity<List<Visita>> buscarPorFiltro(FiltroVisita especification){
+	public ResponseEntity<List<Visita>> buscarPorFiltro(FiltroVisita filtro){
 		
-		List<Visita> visitas =  visitaRepository.findAll(especification.toSpec());
+		
+
+		
+		List<Visita> visitas =  visitaRepository.findAll(filtro.toSpec());
 		return ResponseEntity.ok(visitas);
 		
 	}
